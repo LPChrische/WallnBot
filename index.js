@@ -1,6 +1,5 @@
 const {Client, GatewayIntentBits} = require("discord.js")
-
-const TOKEN = "MTAyOTg1OTYxNDc1OTU4NzkyMQ.GXRaUl.rHxWRDOijI3CkYcZijFiQQCviFG373a22gB5ZA"
+require("dotenv").config()
 
 var answers = ["soos", "fiif", "mööm", "saas", "smens", "yoy", "coc", "lool"]
 
@@ -31,4 +30,4 @@ client.on("messageCreate", message => {
     }
 })
 
-client.login(TOKEN)
+client.login(process.env.TOKEN)
