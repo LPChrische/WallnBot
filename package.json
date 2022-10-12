@@ -1,0 +1,22 @@
+{
+  "name": "wallnbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LPChrische/WallnBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LPChrische/WallnBot/issues"
+  },
+  "homepage": "https://github.com/LPChrische/WallnBot#readme",
+  "dependencies": {
+    "discord.js": "^14.6.0"
+  }
+}
