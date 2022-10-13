@@ -1,4 +1,5 @@
 const {Client, GatewayIntentBits} = require("discord.js")
+const Discord = require("discord.js")
 require("dotenv").config()
 
 const generateImage = require("./generateImage")
@@ -15,9 +16,7 @@ const client = new Client({
     ]
 })
 
-client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}`)
-})
+client.login(process.env.TOKEN)
 
 client.on("messageCreate", (message) => {
     if (message.content == "smums" || 
@@ -44,4 +43,19 @@ client.on("guildMemberAdd", async (member) => {
     })
 })
 
-client.login(process.env.TOKEN)
+let bot = {
+    client,
+    prefix: "n.",
+    owners: ["139380268841566208"]
+}
+
+client.commands = new Discord.Collection()
+client.events = new Discord.Collection()
+
+client.loadEvents = (bot, reload) => require("./handlers/events")(bot, reload)
+client.loadCommands = (bot, reload) => require("./handlers/commands")(bot, reload)
+
+client.loadEvents(bot, false)
+client.loadCommands(bot, false)
+
+module.exports = bot
